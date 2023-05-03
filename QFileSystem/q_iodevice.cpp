@@ -16,7 +16,8 @@ void q_IODevice::practice() {
 //    navigateDirectoryRecursively(root);
 //    qFileInfos();
 //    qStorageInfos();
-    qLockFiles();
+//    qLockFiles();
+    assignmentQTemporaryFile();
 }
 
 void q_IODevice::qBufferOverview() {
@@ -382,4 +383,17 @@ void q_IODevice::qLockFiles() {
         }
     }
 
+}
+
+void q_IODevice::assignmentQTemporaryFile() {
+    QTemporaryFile file(QString("testTempFile"));
+    if (file.open()) {
+        qInfo() << "Opened temporary file:" << file.fileName();
+        QByteArray data("Hello world");
+        file.write(data);
+        file.seek(0);
+        qInfo() << file.readAll();
+    } else {
+        qWarning() << "Failed to open temporary file.";
+    }
 }

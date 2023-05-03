@@ -12,6 +12,7 @@
 #include <QFileInfoList>
 #include <QIODevice>
 #include <QLockFile>
+#include <QTemporaryFile>
 #include <QTextStream>
 #include <QStorageInfo>
 
@@ -41,6 +42,7 @@ public:
     void qFileInfos();
     void qStorageInfos();
     void qLockFiles();
+    void assignmentQTemporaryFile();
 
 private:
     QString filename = "test.txt";
